@@ -7,3 +7,4 @@
 #### Originally i wasn't thinking to publish this but now i know creating little things is the road to create bigger things ^^
 
 Obs: the index.html template I used here was made by Roger(the teacher) but the "theme" of the quiz was my idea :P
+Obs2: trying basic typescript in this project
