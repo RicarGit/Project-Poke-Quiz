@@ -1,5 +1,5 @@
-const quizForm = document.querySelector('.quiz-form')
-const scoreContainer = document.querySelector('.score-container')
+const quizForm = document.querySelector('.quiz-form') as HTMLFormElement
+const scoreContainer = document.querySelector('.score-container') as HTMLElement
 const correctAnswers = ['C', 'A', 'B', 'D']
 
 let score = 0
@@ -11,7 +11,7 @@ const getUserAnswers = () => {
   return userAnswers
 }
 
-const calculateUserScore = userAnswers => {
+const calculateUserScore = (userAnswers: string[]) => {
   correctAnswers.forEach((answer, index) => {
     const isUserAnswerCorrect = answer === userAnswers[index]
 
@@ -38,12 +38,13 @@ const animateScoreCounter = () => {
       score = 0
     }
 
-    scoreContainer.querySelector('h2').textContent = `${counter++}%`
+    let h2 = scoreContainer.querySelector('h2') as HTMLElement
+    h2.textContent = `${counter++}%`
   }, 20)
 }
 
-const showUserScore = event => {
-  event.preventDefault()
+const showUserScore = (e: Event) => {
+  e.preventDefault()
 
   const userAnswers = getUserAnswers()
 

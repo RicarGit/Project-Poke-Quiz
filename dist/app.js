@@ -7,7 +7,7 @@ const getUserAnswers = () => {
     const userAnswers = correctAnswers.map((_, index) => quizForm[`inputQuestion${index + 1}`].value);
     return userAnswers;
 };
-const calculateUserScore = userAnswers => {
+const calculateUserScore = (userAnswers) => {
     correctAnswers.forEach((answer, index) => {
         const isUserAnswerCorrect = answer === userAnswers[index];
         score += (isUserAnswerCorrect) ? 25 : 0;
@@ -28,11 +28,12 @@ const animateScoreCounter = () => {
             clearInterval(timer);
             score = 0;
         }
-        scoreContainer.querySelector('h2').textContent = `${counter++}%`;
+        let h2 = scoreContainer.querySelector('h2');
+        h2.textContent = `${counter++}%`;
     }, 20);
 };
-const showUserScore = event => {
-    event.preventDefault();
+const showUserScore = (e) => {
+    e.preventDefault();
     const userAnswers = getUserAnswers();
     calculateUserScore(userAnswers);
     showFinalScore();
